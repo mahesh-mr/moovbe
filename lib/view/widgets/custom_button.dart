@@ -1,22 +1,22 @@
-
 import 'package:flutter/material.dart';
 
 import '../core/colors.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({
-    Key? key,
-    required this.height,
-    required this.width,
-    required this.onPressed,
-    required this.title,
-    this.btncolor = appRed,
-    this.textColor = appBackground,
-  }) : super(key: key);
+  const CustomButton(
+      {Key? key,
+      required this.height,
+      required this.width,
+      required this.onPressed,
+      required this.title,
+      this.btncolor = appRed,
+      this.textColor = appBackground,
+      this.radius = 10})
+      : super(key: key);
 
   final double height;
   final double width;
-
+  final double? radius;
   final VoidCallback onPressed;
   final String title;
   final Color? btncolor;
@@ -29,14 +29,14 @@ class CustomButton extends StatelessWidget {
         minimumSize: Size(width, height),
         backgroundColor: btncolor,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(radius!),
         ),
       ),
       onPressed: onPressed,
       child: Text(
-        'Get Started',
+        title,
         style: TextStyle(
-            color: textColor, fontWeight: FontWeight.bold, fontSize: 16),
+            color: textColor, fontWeight: FontWeight.normal, ),
       ),
     );
   }

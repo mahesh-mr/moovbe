@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:moovbe_app/view/start_screen/start_screen.dart';
 
 import 'view/core/colors.dart';
+import 'view/home_screen/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
         // primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: GetStartScreen(),
+      home: HomeScreen(),
     );
   }
 }
