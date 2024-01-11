@@ -2,7 +2,8 @@
 import 'package:flutter/material.dart';
 
 import '../core/colors.dart';
-import '../widgets/custom_button.dart';
+import '../drivers_list_screen/drivers_list_screen.dart';
+import '../widgets/custom_list_tile.dart';
 import 'widgets/custom_grid_card.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -32,6 +33,7 @@ class HomeScreen extends StatelessWidget {
                 padding: EdgeInsets.only(
                     left: size.width * 0.05, right: size.width * 0.03),
                 child: CustomGridCard(
+                    onTap: () {},
                     size: size,
                     title: 'Bus',
                     subTitle: 'Manage your Bus',
@@ -43,6 +45,14 @@ class HomeScreen extends StatelessWidget {
                 padding: EdgeInsets.only(
                     left: size.width * 0.03, right: size.width * 0.05),
                 child: CustomGridCard(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DriversListScreen(),
+                        ),
+                      );
+                    },
                     size: size,
                     title: 'Driver',
                     subTitle: 'Manage your Driver',
@@ -71,67 +81,13 @@ class HomeScreen extends StatelessWidget {
                   shrinkWrap: true,
                   // physics: NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) {
-                    return Card(
-                        margin:
-                            EdgeInsets.symmetric(horizontal: size.width * 0.05),
-                        elevation: 2,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10)),
-                        child: SizedBox(
-                          height: size.height * 0.1,
-                          //  color: appYellow,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                height: size.height * 0.1,
-                                width: size.width * 0.23,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    image: const DecorationImage(
-                                        image: AssetImage('assets/bus2.png')),
-                                    color: appGrey),
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: const [
-                                  Text(
-                                    'KSRTC',
-                                    style: TextStyle(
-                                      fontSize: 17,
-                                    ),
-                                  ),
-                                  Text(
-                                    "Swift Scania P-​series",
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                    ),
-                                  )
-                                ],
-                              ),
-                              Padding(
-                                padding:
-                                    EdgeInsets.only(right: size.width * 0.02),
-                                child: CustomButton(
-                                  height: size.height * 0.04,
-                                  width: size.width * 0.02,
-                                  onPressed: () {},
-                                  title: "Manage",
-                                  radius: 5,
-                                ),
-                              )
-                              // CustomButton(
-                              //     height: size.height*0.02,
-                              //     width: size.width*0.02,
-                              //     onPressed: () {
-
-                              //     },
-                              //     title: 'Manage',
-                              //     )
-                            ],
-                          ),
-                        ));
+                    return CustomListTaile(
+                      size: size,
+                      title: 'KSRTC',
+                      subTitle: "Swift Scania P-​series",
+                      image: 'assets/bus2.png',
+                      btntitle:  "Manage",
+                    );
                   },
                   separatorBuilder: (context, index) => const SizedBox(
                         height: 10,

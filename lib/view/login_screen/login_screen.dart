@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moovbe_app/view/core/colors.dart';
-import 'package:moovbe_app/view/login_screen/widgets/custom_text_form.dart';
+import 'package:moovbe_app/view/widgets/custom_text_form.dart';
 import 'package:moovbe_app/view/widgets/custom_button.dart';
 
 import '../home_screen/home_screen.dart';
