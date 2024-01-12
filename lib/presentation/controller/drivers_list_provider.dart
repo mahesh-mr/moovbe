@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'dart:developer';
+
 import 'package:get/get.dart';
 import 'package:moovbe_app/data/add_driver_service.dart';
 
@@ -17,10 +18,10 @@ class DriversList extends GetxController {
       loading.value = false;
       update();
       allDriversList.value = data!;
-      return allDriversList.value;
+      return allDriversList;
     } catch (e) {
-      print(e);
-      print('catch bloc called');
+      log("msg :$e");
+      log('catch bloc called');
       loading.value = false;
     }
     return null;
@@ -31,10 +32,11 @@ class DriversList extends GetxController {
   }) async {
     try {
       await AddDriversService.deleteDriverServ(driverId: driverId);
-      print("delete =======");
+      log("delete =======");
     } catch (e) {
       Get.snackbar("sorry", "$e");
     }
+    return null;
   }
 
   @override

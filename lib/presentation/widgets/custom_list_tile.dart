@@ -1,14 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-
-import '../controller/drivers_list_provider.dart';
 import '../core/colors.dart';
 import 'custom_button.dart';
 
 class CustomListTaile extends StatelessWidget {
-   CustomListTaile({
+   const CustomListTaile({
     Key? key,
     required this.size,
     required this.title,

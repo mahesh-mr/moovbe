@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
 import 'package:moovbe_app/data/add_driver_service.dart';
-import 'package:moovbe_app/presentation/pages/home_screen/home_screen.dart';
 
 import '../../controller/drivers_list_provider.dart';
 import '../../widgets/custom_button.dart';
@@ -18,15 +15,13 @@ class AddDriversScreen extends StatelessWidget {
   final licenceController = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
-
-  @override
   final driversList = Get.put(DriversList());
-
+  @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Add Driver'),
+        title: const Text('Add Driver'),
       ),
       body: Column(
         children: [
@@ -84,7 +79,6 @@ class AddDriversScreen extends StatelessWidget {
                   width: double.infinity,
                   onPressed: () {
                     bool isValid = formKey.currentState!.validate();
-                    print(nameController.text);
 
                     if (isValid) {
                       AddDriversService.addDrivers(

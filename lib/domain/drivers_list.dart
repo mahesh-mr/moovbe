@@ -40,11 +40,11 @@ class DriverList {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['mobile'] = this.mobile;
-    data['license_no'] = this.licenseNo;
+    final Map<String, dynamic> data =  Map<String, dynamic>();
+    data['id'] = id;
+    data['name'] = name;
+    data['mobile'] = mobile;
+    data['license_no'] = licenseNo;
     return data;
   }
 }

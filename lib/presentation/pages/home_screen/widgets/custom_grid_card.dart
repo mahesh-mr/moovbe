@@ -37,21 +37,21 @@ class CustomGridCard extends StatelessWidget {
           children: [
             Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                   color: appBackground),
             ),
             Text(
               subTitle,
-              style: TextStyle(fontSize: 14, color: appBackground),
+              style: const TextStyle(fontSize: 14, color: appBackground),
             ),
             SizedBox(
               height: size.height * 0.01,
             ),
             Align(
                 alignment: Alignment.bottomRight,
-                child: Container(
+                child: SizedBox(
                   height: size.height * 0.1,
                   width: size.width * 0.245,
                   child: Image.asset(

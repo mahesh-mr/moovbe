@@ -54,7 +54,7 @@ final int index;
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     // crossAxisAlignment: cross,
                     children: [
-                      Container(
+                      SizedBox(
                         height: size.height * 0.41,
                         width: size.width * 0.2,
                         //color: appYellow,

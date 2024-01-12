@@ -1,8 +1,6 @@
-import 'dart:convert';
+
 import 'dart:developer';
 import 'package:get_storage/get_storage.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import '../domain/login_model.dart';
 import 'core/dio_clint.dart';
 import 'core/token_storage.dart';
 
@@ -30,5 +28,6 @@ class LoginService {
     } catch (e) {
       log("data:  $e");
     }
+    return null;
   }
 }

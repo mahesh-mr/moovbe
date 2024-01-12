@@ -1,13 +1,10 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:moovbe_app/data/login_service.dart';
-import 'package:moovbe_app/domain/login_model.dart';
 import 'package:moovbe_app/presentation/core/colors.dart';
 import 'package:moovbe_app/presentation/widgets/custom_text_form.dart';
 import 'package:moovbe_app/presentation/widgets/custom_button.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../home_screen/home_screen.dart';
 
@@ -27,8 +24,12 @@ class LoginScreen extends StatelessWidget {
           Container(
             height: size.height * 0.3,
             width: double.infinity,
-            decoration: BoxDecoration(image: DecorationImage(image: AssetImage('assets/bg.png'))),
-            color: appBlack,
+            decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage(
+                      'assets/bg.png',
+                    ),
+                    fit: BoxFit.cover)),
             child: Padding(
               padding: EdgeInsets.only(
                   left: size.width * 0.07, bottom: size.height * 0.04),
@@ -107,7 +108,7 @@ class LoginScreen extends StatelessWidget {
                 child: CustomButton(
                   height: size.height * 0.06,
                   width: double.infinity,
-                  onPressed: ()  {
+                  onPressed: () {
                     bool isValid = formKey.currentState!.validate();
 
                     if (isValid) {
@@ -123,7 +124,7 @@ class LoginScreen extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => HomeScreen(),
+                              builder: (context) => const HomeScreen(),
                             ),
                           );
                         }
