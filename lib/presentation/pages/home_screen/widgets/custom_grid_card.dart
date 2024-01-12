@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../core/colors.dart';
+import '../../../core/colors.dart';
 
 class CustomGridCard extends StatelessWidget {
   const CustomGridCard({

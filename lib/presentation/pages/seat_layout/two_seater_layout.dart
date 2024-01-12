@@ -1,15 +1,18 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:moovbe_app/view/core/colors.dart';
 
-import '../widgets/custom_driver_card.dart';
-import '../widgets/seat_layout_widget.dart';
+import 'package:moovbe_app/presentation/core/colors.dart';
 
-class SeatArangeTwo extends StatelessWidget {
-  const SeatArangeTwo({super.key});
+import '../../widgets/custom_driver_card.dart';
+import '../../widgets/seat_layout_widget.dart';
 
+class TwoSeaterLayout extends StatelessWidget {
+  const TwoSeaterLayout({
+    Key? key,
+    required this.index,
+  }) : super(key: key);
+final int index;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -22,9 +25,9 @@ class SeatArangeTwo extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            CustomDriverCard(size: size),
+            CustomDriverCard(size: size,index: index),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: size.width * 0.06),
+              margin: EdgeInsets.symmetric(horizontal: size.width * 0.05),
               height: size.height * 0.56,
               width: double.infinity,
               decoration: BoxDecoration(
@@ -51,26 +54,8 @@ class SeatArangeTwo extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     // crossAxisAlignment: cross,
                     children: [
-                      Container(
-                        height: size.height * 0.41,
-                        width: size.width * 0.2,
-                        //color: appYellow,
-                        child: Column(
-                          children: List.generate(
-                            9,
-                            (index) => Padding(
-                              padding: EdgeInsets.only(top: size.height * 0.01),
-                              child: SvgPicture.asset(
-                                'assets/sr.svg',
-                                width: size.width * 0.038,
-                                height: size.height * 0.035,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      SeatLayoutWidget(size: size, type: 2),
-                      //SeatLayoutWidget(size: size,type: 1),
+                      SeatLayoutWidget(size: size, type: 1),
+                      SeatLayoutWidget(size: size, type: 1),
                     ],
                   ),
                 ],

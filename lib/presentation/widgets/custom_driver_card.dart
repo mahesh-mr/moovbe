@@ -1,16 +1,19 @@
-
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../controller/drivers_list_provider.dart';
 import '../core/colors.dart';
 
 class CustomDriverCard extends StatelessWidget {
-  const CustomDriverCard({
+  CustomDriverCard({
     super.key,
     required this.size,
+    required this.index,
   });
 
   final Size size;
-
+  final int index;
+  final driversList = Get.put(DriversList());
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,17 +29,17 @@ class CustomDriverCard extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
+            children: [
               Text(
-                'Rohit sharma',
-                style: TextStyle(
+                driversList.allDriversList[index].name!,
+                style: const TextStyle(
                     fontSize: 32,
                     color: appBackground,
                     fontWeight: FontWeight.bold),
               ),
               Text(
-                'License no: PJ515196161655',
-                style: TextStyle(
+               "License no : ${driversList.allDriversList[index].licenseNo!}",
+                style: const TextStyle(
                   fontSize: 14,
                   color: appBackground,
                 ),

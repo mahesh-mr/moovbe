@@ -1,9 +1,9 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 
-import '../core/colors.dart';
+import '../../core/colors.dart';
 import '../login_screen/login_screen.dart';
-import '../widgets/custom_button.dart';
+import '../../widgets/custom_button.dart';
 
 class GetStartScreen extends StatelessWidget {
   const GetStartScreen({super.key});
