@@ -53,7 +53,7 @@ class AddDriversScreen extends StatelessWidget {
                       horizontal: size.width * 0.05,
                       vertical: size.height * 0.015),
                   child: CustomFomField(
-                      textinputType: TextInputType.name,
+                      textinputType: TextInputType.number,
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "enter valid License";
@@ -88,12 +88,7 @@ class AddDriversScreen extends StatelessWidget {
                         if (value == "successfully created new driver") {
                           driversList.grtDrivers();
 
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => DriversListScreen(),
-                            ),
-                          );
+                         Navigator.pop(context);
                         }
                       });
                     }

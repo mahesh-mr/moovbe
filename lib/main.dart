@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:moovbe_app/presentation/pages/home_screen/home_screen.dart';
 import 'data/core/token_storage.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String? token = GetLocalStorage.getUserIdAndToken('token');
-    return MaterialApp(
+    return GetMaterialApp(
         title: 'moovbe',
         theme: ThemeData(
           appBarTheme: AppBarTheme(

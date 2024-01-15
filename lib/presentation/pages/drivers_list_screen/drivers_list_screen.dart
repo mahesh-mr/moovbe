@@ -52,18 +52,20 @@ class DriversListScreen extends StatelessWidget {
                       return CustomListTaile(
                         tailOnpressed: () {
                           if (inx % 2 == 1) {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>  TwoSeaterLayout(index: inx),
-                              ));
-                        } else {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>  ThreeSeaterLayout(index: inx),
-                              ));
-                        }
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      TwoSeaterLayout(index: inx),
+                                ));
+                          } else {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      ThreeSeaterLayout(index: inx),
+                                ));
+                          }
                         },
                         onPressed: () {
                           alertBoxWidget(context, inx);
@@ -125,8 +127,16 @@ class DriversListScreen extends StatelessWidget {
               onPressed: () {
                 driversList.deletedriver(
                     driverId: driversList.allDriversList[inx].id.toString());
-                driversList.grtDrivers();
-                Navigator.pop(context);
+                driversList.grtDrivers().then((value) {
+                  Future.delayed(const Duration(seconds: 2)).then((value) {
+                    print("time");
+    CircularProgressIndicator();
+    Navigator.pop(context);
+                  });
+              
+
+                     
+                });
               },
               child: const Text(
                 "Delete",
@@ -141,4 +151,3 @@ class DriversListScreen extends StatelessWidget {
     );
   }
 }
- 

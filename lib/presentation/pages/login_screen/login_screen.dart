@@ -1,7 +1,10 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/utils.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:moovbe_app/data/login_service.dart';
+import 'package:moovbe_app/presentation/controller/login_provider.dart';
 import 'package:moovbe_app/presentation/core/colors.dart';
 import 'package:moovbe_app/presentation/widgets/custom_text_form.dart';
 import 'package:moovbe_app/presentation/widgets/custom_button.dart';
@@ -14,6 +17,7 @@ class LoginScreen extends StatelessWidget {
   final userNameController = TextEditingController();
   final passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
+  final controller = Get.put(LoginProvider());
 
   @override
   Widget build(BuildContext context) {
@@ -72,6 +76,8 @@ class LoginScreen extends StatelessWidget {
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "enter valid userNmae";
+                        } else if (value != 'admin_user') {
+                          return "invalid user name";
                         } else {
                           return null;
                         }
@@ -88,6 +94,8 @@ class LoginScreen extends StatelessWidget {
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "enter valid Password";
+                        }else if (value != '123admin789') {
+                          return "invalid user password";
                         } else {
                           return null;
                         }
@@ -108,7 +116,7 @@ class LoginScreen extends StatelessWidget {
                 child: CustomButton(
                   height: size.height * 0.06,
                   width: double.infinity,
-                  onPressed: () {
+                  onPressed: () async {
                     bool isValid = formKey.currentState!.validate();
 
                     if (isValid) {
@@ -127,6 +135,8 @@ class LoginScreen extends StatelessWidget {
                               builder: (context) => const HomeScreen(),
                             ),
                           );
+                        } else {
+                          Get.snackbar("error", "message");
                         }
                       });
                     }
